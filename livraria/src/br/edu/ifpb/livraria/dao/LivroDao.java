@@ -1,8 +1,8 @@
-package br.com.caelum.livraria.dao;
+package br.edu.ifpb.livraria.dao;
 
 import java.util.List;
 
-import br.com.caelum.livraria.modelo.Livro;
+import br.edu.ifpb.livraria.modelo.Livro;
 
 
 public class LivroDao {

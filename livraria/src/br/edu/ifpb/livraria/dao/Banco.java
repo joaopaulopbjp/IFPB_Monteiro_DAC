@@ -1,11 +1,11 @@
-package br.com.caelum.livraria.dao;
+package br.edu.ifpb.livraria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.caelum.livraria.modelo.Autor;
-import br.com.caelum.livraria.modelo.Livro;
-import br.com.caelum.livraria.modelo.Usuario;
+import br.edu.ifpb.livraria.modelo.Autor;
+import br.edu.ifpb.livraria.modelo.Livro;
+import br.edu.ifpb.livraria.modelo.Usuario;
 
 public class Banco {
 	

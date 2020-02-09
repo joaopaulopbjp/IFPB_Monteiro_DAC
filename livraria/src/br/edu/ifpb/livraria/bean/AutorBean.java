@@ -1,11 +1,11 @@
-package br.com.caelum.livraria.bean;
+package br.edu.ifpb.livraria.bean;
 
 import java.util.List;
 
 import javax.enterprise.inject.Model;
 
-import br.com.caelum.livraria.dao.AutorDao;
-import br.com.caelum.livraria.modelo.Autor;
+import br.edu.ifpb.livraria.dao.AutorDao;
+import br.edu.ifpb.livraria.modelo.Autor;
 
 @Model
 public class AutorBean {

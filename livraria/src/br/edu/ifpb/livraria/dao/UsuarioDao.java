@@ -1,6 +1,6 @@
-package br.com.caelum.livraria.dao;
+package br.edu.ifpb.livraria.dao;
 
-import br.com.caelum.livraria.modelo.Usuario;
+import br.edu.ifpb.livraria.modelo.Usuario;
 
 
 public class UsuarioDao {

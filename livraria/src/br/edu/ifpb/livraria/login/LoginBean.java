@@ -1,13 +1,13 @@
-package br.com.caelum.livraria.login;
+package br.edu.ifpb.livraria.login;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import br.com.caelum.livraria.bean.MenuBean;
-import br.com.caelum.livraria.dao.UsuarioDao;
-import br.com.caelum.livraria.modelo.Usuario;
+import br.edu.ifpb.livraria.bean.MenuBean;
+import br.edu.ifpb.livraria.dao.UsuarioDao;
+import br.edu.ifpb.livraria.modelo.Usuario;
 
 @Model
 public class LoginBean {
