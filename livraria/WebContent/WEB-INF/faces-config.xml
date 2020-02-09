@@ -13,7 +13,7 @@
 	
 	<lifecycle>
 		<phase-listener>
-			br.edu.ifpb.livraria.login.Autorizador 
+			br.com.caelum.livraria.login.Autorizador 
 		</phase-listener>
 	</lifecycle>
 
