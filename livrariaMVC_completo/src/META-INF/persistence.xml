@@ -8,6 +8,7 @@
 	
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/livrariaDS</jta-data-source>
+		<class>br.edu.ifpb.dac.livraria.modelo.Autor</class>
 
 		<properties>			
 			<!-- Configuracoes especificas do Hibernate -->
