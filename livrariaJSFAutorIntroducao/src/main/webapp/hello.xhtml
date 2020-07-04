@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:f="http://xmlns.jcp.org/jsf/core" 
+				xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel value="Input" for="input" />
+		<h:inputText id="input" value="#{helloWord.input}" />
+		<h:commandButton value="Submit" action="#{helloWord.submit}">
+			<f:ajax execute="@form" render=":output"/>
+		</h:commandButton>
+	</h:form>
+	<h:outputText id="output" value="#{helloWord.output}" />
+</h:body>
+</html>

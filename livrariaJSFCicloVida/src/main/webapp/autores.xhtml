@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head></h:head>
+<h:body>
+		<h:form id="formAutor"> 
+			<h:panelGrid columns="3">
+			 	<f:facet name="header">  
+		    		Cadastro de autores
+				</f:facet>
+			
+				<h:outputLabel value="Nome:" />
+				<h:inputText id="nome" value="#{autorBean.autor.nome}"  required="true" immediate="true"/>
+				<h:message for="nome"/>
+
+				<h:outputLabel value="e-mail:" />
+				<h:inputText id="email" value="#{autorBean.autor.email}"  required="true"/>
+				<h:message for="email"/>
+								
+			    <f:facet name="footer">  
+					<h:commandButton value="Salvar" action="#{autorBean.cadastra}">
+					</h:commandButton>
+					<h:commandButton value="Cancelar" action="index?faces-redirect=true"  immediate="true"></h:commandButton>
+				</f:facet>
+			</h:panelGrid>
+						
+		</h:form>
+		
+			<h3>Autores</h3>
+
+	<h:dataTable id="autores" value="#{autorBean.autores}" var="autor">
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+					#{autor.nome}
+    			</h:column>
+	</h:dataTable>
+</h:body>	
+</html>
