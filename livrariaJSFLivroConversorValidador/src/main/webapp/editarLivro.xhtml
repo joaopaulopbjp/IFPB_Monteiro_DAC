@@ -35,7 +35,7 @@
 			<h:outputLabel value="Data de lançamento:" />
 			<h:inputText id="data" value="#{livroBean.livro.dataLancamento}">
 				required="true">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>
+				<f:convertDateTime pattern="dd/MM/yyyy"  timeZone="America/Recife"/>
 			</h:inputText>
 		</h:panelGrid>
 

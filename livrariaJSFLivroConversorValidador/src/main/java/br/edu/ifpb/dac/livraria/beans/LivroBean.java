@@ -1,22 +1,18 @@
 package br.edu.ifpb.dac.livraria.beans;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
-import br.edu.ifpb.dac.livraria.modelo.Autor;
 import br.edu.ifpb.dac.livraria.modelo.Livro;
-import br.edu.ifpb.dac.livraria.servico.ServicoAutores;
 import br.edu.ifpb.dac.livraria.servico.ServicoLivros;
 
 @Named
-@ViewScoped
+@RequestScoped
 public class LivroBean implements Serializable{
 
 	/**
@@ -43,7 +39,7 @@ public class LivroBean implements Serializable{
 	
 		
 	public void cadastra() {
-		System.out.println("Cadastra - Livro: "+livro.getTitulo());
+		System.out.println("Cadastra - Livro: "+livro.getTitulo()+" - DATA: "+livro.getDataLancamento());
 		this.servicoLivro.salva(livro);
 		livros.add(livro);
 		this.livro = new Livro();
