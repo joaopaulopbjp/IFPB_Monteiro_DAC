@@ -24,10 +24,11 @@ public class LivroBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Livro livro = new Livro();
-	private List<Autor> autores;
-	private Integer autorId;
-	private List<Autor> autoresLivro;
 	private List<Livro> livros;
+	private Integer autorId;
+	private List<Autor> autores;
+	private List<Autor> autoresLivro;
+	
 	@EJB
 	private ServicoLivros servicoLivro;
 	@EJB
@@ -40,7 +41,7 @@ public class LivroBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		livros = this.servicoLivro.todosLivros();
-		autores = servicoAutor.todosAutores();
+		autores = this.servicoAutor.todosAutores();
 		autoresLivro = new ArrayList<Autor>();
 	}
 	
@@ -48,31 +49,44 @@ public class LivroBean implements Serializable{
 		return livro;
 	}
 	
-	
-	public void adicionaAutorLivro() {
-		System.out.println("AdicionaAutor - Livro - AutorID: "+autorId);
-		Autor autor = servicoAutor.buscaPelaId(autorId);
-		System.out.println("AdicionaAutor - Livro: "+autor.getNome());
-		autoresLivro.add(autor);
-	}
-	
+		
 	public void cadastra() {
-		System.out.println("Cadastra - Livro: "+livro.getTitulo());
-		System.out.println("Cadastra - Livro - AutoresdoLivro: "+autoresLivro.size());
+		System.out.println("Cadastra - Livro: "+livro.getTitulo()+" - DATA: "+livro.getDataLancamento());
 		livro.setAutores(autoresLivro);
 		this.servicoLivro.salva(livro);
 		livros.add(livro);
 		this.livro = new Livro();
-		this.autoresLivro.clear();
+	}
+	
+	public String altera() {
+		System.out.println("Altera - Livro: "+livro.getTitulo());
+		this.servicoLivro.altera(livro);
+		this.livro = new Livro();
+		
+		return "livros?faces-redirect=true";
+	}
+	
+	public void adicionaAutorLivro() {
+		Autor autor = servicoAutor.buscaPelaId(autorId);
+		System.out.println("AdicionaAutorLivro - Livro: "+livro.getTitulo()+" - Autor: "+autor.getNome());
+		autoresLivro.add(autor);
 	}
 	
 	public List<Livro> getLivros() {
 		return livros;
 	}
-	
-	public List<Autor> getAutores(){
-		System.out.println("GetAutores - Livro: "+autores.size());		
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+
+	public List<Autor> getAutores() {
 		return autores;
+	}
+
+	public void setAutores(List<Autor> autores) {
+		this.autores = autores;
 	}
 
 	public List<Autor> getAutoresLivro() {
@@ -90,5 +104,6 @@ public class LivroBean implements Serializable{
 	public void setAutorId(Integer autorId) {
 		this.autorId = autorId;
 	}
+	
 
 }

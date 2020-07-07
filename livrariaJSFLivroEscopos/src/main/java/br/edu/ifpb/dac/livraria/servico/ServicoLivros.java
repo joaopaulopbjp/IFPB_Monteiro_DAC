@@ -40,4 +40,10 @@ public class ServicoLivros {
 		
 		return livro;
 	}
+
+	public void altera(Livro livro) {
+		System.out.println("[INFO] Alterando o Livro " + livro.getTitulo());
+	    manager.merge(livro);
+	    System.out.println("[INFO] Livro " + livro.getTitulo()+" alterado com sucesso.");	
+	}
 }

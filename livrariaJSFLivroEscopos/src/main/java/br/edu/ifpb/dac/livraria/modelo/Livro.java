@@ -3,6 +3,8 @@ package br.edu.ifpb.dac.livraria.modelo;
 import java.io.Serializable;
 import java.lang.String;
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,6 +21,8 @@ public class Livro implements Serializable {
 	private String titulo;
 	private String isbn;
 	private BigDecimal preco;
+	@Temporal(TemporalType.DATE)
+	private Date dataLancamento;
 	
 	@ManyToMany
 	private List<Autor> autores;
@@ -54,6 +58,15 @@ public class Livro implements Serializable {
 	}
 	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
+	}
+	public Date getDataLancamento() {
+		return dataLancamento;
+	}
+	public void setDataLancamento(Date dataLancamento) {
+		this.dataLancamento = dataLancamento;
+	}
+	public Integer getId() {
+		return id;
 	}
    
 }
