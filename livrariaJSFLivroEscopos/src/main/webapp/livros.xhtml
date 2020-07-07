@@ -52,17 +52,12 @@
 
 			<h:commandButton value="Adiciona autor"
 				action="#{livroBean.adicionaAutorLivro}">
-					<f:ajax execute="autorMenu" render="autoresLivro autoresLivroHTML msg"></f:ajax>
+					<f:ajax execute="autorMenu" render="autoresLivro msg"></f:ajax>
 			</h:commandButton>
 			<br />
 			<h:dataTable id="autoresLivro" var="autor" value="#{livroBean.autoresLivro}">
 				<h:column>#{autor.nome}</h:column>
 			</h:dataTable>
-			<ol jsf:id="autoresLivroHTML">
-				<ui:repeat var="autor" value="#{livroBean.autoresLivro}">
-					<li>#{autor.nome}</li>
-				</ui:repeat>
-			</ol>
 
 		</fieldset>
 
