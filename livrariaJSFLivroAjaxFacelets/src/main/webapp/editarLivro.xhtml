@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:f="http://xmlns.jcp.org/jsf/core" 
+				xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<f:metadata>
+	<f:viewParam name="id" value="#{livroBean.livro}" required="true"
+		requiredMessage="Não foi especificado o id do livro">
+	</f:viewParam>
+</f:metadata>
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<h:messages id="msg"/>
+		<h:panelGrid columns="2">
+			<f:facet name="header">  
+		    		Editar dados do Livro
+				</f:facet>
+
+			<h:outputLabel value="Título:" />
+			<h:inputText id="titulo" value="#{livroBean.livro.titulo}"
+				required="true" />
+			<h:outputLabel value="Isbn:" />
+			<h:inputText id="isbn" value="#{livroBean.livro.isbn}"
+				required="true" />
+			<h:outputLabel value="Preço:" />
+			<h:inputText id="preco" value="#{livroBean.livro.preco}"
+				required="true">
+				<f:convertNumber minFractionDigits="2" maxFractionDigits="3"
+					locale="pt_BR" />
+			</h:inputText>
+			<h:outputLabel value="Data de lançamento:" />
+			<h:inputText id="data" value="#{livroBean.livro.dataLancamento}">
+				required="true">
+				<f:convertDateTime pattern="dd/MM/yyyy"  timeZone="America/Recife"/>
+			</h:inputText>
+		</h:panelGrid>
+
+		<h:commandButton value="Alterar" action="#{livroBean.altera}">
+		</h:commandButton>
+
+	</h:form>
+</h:body>
+</html>
