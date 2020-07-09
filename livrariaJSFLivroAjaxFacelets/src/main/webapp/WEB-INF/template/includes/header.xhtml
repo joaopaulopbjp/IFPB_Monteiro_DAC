@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+	
+	<a href="#{request.contextPath}/">
+	<h:graphicImage name="img/Logo-png-livraria.png" />
+	</a>
+	
+	<nav>
+		<ul>
+			<li><h:link outcome="/index.xhtml" value="Home"/></li>
+		</ul>
+	</nav>
+	
+	<h1><ui:insert name="titulo">Titulo</ui:insert></h1>
+	
+
+</ui:composition>

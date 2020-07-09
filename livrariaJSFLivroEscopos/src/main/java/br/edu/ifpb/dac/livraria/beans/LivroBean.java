@@ -66,7 +66,7 @@ public class LivroBean implements Serializable{
 		this.autoresLivro = new ArrayList<Autor>();
 		
 		//"livros?faces-redirect=true"
-		return "livros";
+		return "livros?faces-redirect=true";
 	}
 	
 	public void adicionaAutorLivro() {

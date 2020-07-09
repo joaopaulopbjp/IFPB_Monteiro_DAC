@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+
+<ui:composition template="WEB-INF/template/template.xhtml" 
+				xmlns="http://www.w3.org/1999/xhtml" 
 				xmlns:f="http://xmlns.jcp.org/jsf/core" 
 				xmlns:h="http://xmlns.jcp.org/jsf/html"
 				xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 				xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-<h:head></h:head>
+<ui:param name="title" value="Livraria DAC - Cadastro de livros" />
 
-<h:body>
+<ui:define name="titulo">Cadastro de Livros</ui:define>
+
+<ui:define name="conteudo">
 	<h:form id="form">
 		<h:messages id="msg"/>
 		<h:panelGrid columns="2">
-			<f:facet name="header">  
-		    		Cadastro de Livros
-				</f:facet>
-
 			<h:outputLabel value="Título:" />
 			<h:inputText id="titulo" label="titulo"
 				value="#{livroBean.livro.titulo}" required="true">
@@ -54,6 +53,8 @@
 				action="#{livroBean.adicionaAutorLivro}">
 					<f:ajax execute="autorMenu" render="autoresLivro autoresLivroHTML msg"></f:ajax>
 			</h:commandButton>
+			<br />
+			<h:commandLink action="autores?faces-redirect=true" value="Cadastrar novo autor" immediate="true"/>
 			<br />
 			<h:dataTable id="autoresLivro" var="autor" value="#{livroBean.autoresLivro}">
 				<h:column>#{autor.nome}</h:column>
@@ -101,5 +102,5 @@
 			</h:link>
     	</h:column>
 	</h:dataTable>
-</h:body>
-</html>
+</ui:define>
+</ui:composition>

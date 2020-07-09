@@ -14,6 +14,7 @@ public class Autor {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String email;
 	
 	@ManyToMany(mappedBy="autores")
 	private List<Livro> livros;
@@ -40,6 +41,14 @@ public class Autor {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

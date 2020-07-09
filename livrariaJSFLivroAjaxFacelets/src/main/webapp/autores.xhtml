@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head></h:head>
-<h:body>
+<ui:composition template="WEB-INF/template/template.xhtml" 
+				xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:f="http://xmlns.jcp.org/jsf/core" 
+				xmlns:h="http://xmlns.jcp.org/jsf/html"
+				xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+				xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:param name="title" value="Livraria DAC - Cadastro de autores" />
+
+<ui:define name="titulo">Cadastro de autores</ui:define>
+
+<ui:define name="conteudo">
 	<h:form id="formAutor">
 		<h:messages id="msg"/>
 		<h:panelGrid columns="2">
@@ -26,7 +32,7 @@
 				<h:commandButton value="Salvar" action="#{autorBean.cadastra}">
 					<f:ajax execute="@form" render=":autores :nome msg" />
 				</h:commandButton>
-				<h:commandButton value="Cancelar" action="index?faces-redirect=true"  immediate="true"></h:commandButton>
+				<h:commandButton value="Voltar para livros" action="livros?faces-redirect=true"  immediate="true"></h:commandButton>
 			</f:facet>
 		</h:panelGrid>
 
@@ -40,5 +46,5 @@
 					#{autor.nome}
     			</h:column>
 	</h:dataTable>
-</h:body>	
-</html>
+</ui:define>
+</ui:composition>
