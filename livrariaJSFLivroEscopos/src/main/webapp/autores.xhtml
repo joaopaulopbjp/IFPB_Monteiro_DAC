@@ -26,7 +26,7 @@
 				<h:commandButton value="Salvar" action="#{autorBean.cadastra}">
 					<f:ajax execute="@form" render=":autores :nome msg" />
 				</h:commandButton>
-				<h:commandButton value="Cancelar" action="index?faces-redirect=true"  immediate="true"></h:commandButton>
+				<h:commandButton value="Voltar para livros" action="livros?faces-redirect=true"  immediate="true"></h:commandButton>
 			</f:facet>
 		</h:panelGrid>
 

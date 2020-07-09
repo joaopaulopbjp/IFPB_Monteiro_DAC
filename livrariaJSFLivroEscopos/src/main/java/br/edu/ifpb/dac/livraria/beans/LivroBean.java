@@ -56,14 +56,17 @@ public class LivroBean implements Serializable{
 		this.servicoLivro.salva(livro);
 		livros.add(livro);
 		this.livro = new Livro();
+		this.autoresLivro = new ArrayList<Autor>();
 	}
 	
 	public String altera() {
 		System.out.println("Altera - Livro: "+livro.getTitulo());
 		this.servicoLivro.altera(livro);
 		this.livro = new Livro();
+		this.autoresLivro = new ArrayList<Autor>();
 		
-		return "livros?faces-redirect=true";
+		//"livros?faces-redirect=true"
+		return "livros";
 	}
 	
 	public void adicionaAutorLivro() {
