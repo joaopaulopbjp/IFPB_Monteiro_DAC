@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,18 +27,30 @@ public class FrontControllerServlet extends HttpServlet {
             throws ServletException, IOException {
 
     	
-		String paramComando = request.getParameter("comando");		
-		String nomeCompletoClasse = "br.edu.ifpb.dac.livraria.controlador.comando." + paramComando;
-		Comando comandoObj = null;
-		try {
-			Class classe = Class.forName(nomeCompletoClasse);
-			comandoObj = (Comando)classe.newInstance();
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String paramComando = request.getParameter("comando");	
 		
-		comandoObj.executa(request, response);
+		if (paramComando != null && !paramComando.isEmpty()) {
+			String nomeCompletoClasse = "br.edu.ifpb.dac.livraria.controlador.comando." + paramComando;
+			Comando comandoObj = null;
+			try {
+				Class classe = Class.forName(nomeCompletoClasse);
+				comandoObj = (Comando)classe.newInstance();
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			comandoObj.executa(request, response);
+	
+		}else {
+			response.sendRedirect("instrucoes.html");
+			
+			//RequestDispatcher rd = request.getRequestDispatcher("/instrucoes.html");
+			//rd.forward(request, response);
+			
+			//response.getWriter().println("<h1> Não foi informado o parâmetro com o comando que deseja. </h1>");
+			//response.getWriter().println("<h2> A URL deve ter o padrao: /controlador?comando=ListaAutores. </h2>");
+		}
     }
 
 }
